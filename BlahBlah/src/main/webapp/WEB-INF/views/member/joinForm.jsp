@@ -18,9 +18,16 @@
 		fs.focus();
 	};
 </script>
+<style type="text/css">
+	p.wrongpw:before{
+		content:"비밀번호가 일치하지 않습니다.";
+		color:red;
+		font-size:13px;
+	}
+</style>
 </head>
 <script>
-function fn_idchkFn(){
+function idCheck(){
 	let id = document.getElementById('id').value;
 	const IDInfo = JSON.stringify({id:id}); 
 	
@@ -38,7 +45,23 @@ function fn_idchkFn(){
 			alert(errorThrown.statusText);
 		}
 	})
-}</script>
+}
+function pwCheck(){
+
+	let pw = document.getElementById('pw').value;
+	let repw = document.getElementById('repw').value;
+/* 	alert(pw+repw); */
+	if(pw!=repw){
+		 $('#noticepw').addClass('wrongpw');
+		 $('#noticepw').addClass('form-control');
+	}
+	else{ 
+		$('#noticepw').removeClass('form-control');
+		$('#noticepw').removeClass('wrongpw');
+	}
+}
+
+</script>
 <body>
 	<!-- uppermost -->
 	<%@ include file="/resources/include/main/uppermost.jsp"%>
@@ -51,15 +74,16 @@ function fn_idchkFn(){
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon" ></span> 
-					<input id="id" name="id" type="text" class="form-control" placeholder="아이디">
-					<input id="idbtn" name="idbtn" type="button" class="form-control" value="아이디확인" onClick="fn_idchkFn()">
+					<input id="id" name="id" type="text"  class="form-control"  placeholder="아이디">
+					<input id="idbtn" name="idbtn" type="button" style="text-align:left"  class="form-control" value="아이디확인" onClick="idCheck()">
 					</div>
 				</p>
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
 					<input id="pw" name="pw" type="password" class="form-control" placeholder="패스워드">
-					<input id="repw" name="repw" type="password" class="form-control" placeholder="패스워드 다시입력">
+					<input id="repw" name="repw" type="password" class="form-control" placeholder="패스워드 재확인" onblur="pwCheck();">
+					<p id = "noticepw" ></p>
 					</div>
 				</p>
 				<p>
@@ -80,7 +104,7 @@ function fn_idchkFn(){
 					<input id="phone" name="phone" type="text" class="form-control" placeholder="전화번호">
 					</div>
 				</p>
-				<input type="submit" class="btn btn-default" value="가입하기" onClick="fn_idchkFn()" />
+				<input type="submit" class="btn btn-default" value="가입하기"  />
 			</form>
 		</div>
 	</div>
