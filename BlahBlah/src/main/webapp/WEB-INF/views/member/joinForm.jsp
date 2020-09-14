@@ -19,6 +19,26 @@
 	};
 </script>
 </head>
+<script>
+function fn_idchkFn(){
+	let id = document.getElementById('id').value;
+	const IDInfo = JSON.stringify({id:id}); 
+	
+   	$.ajax({
+		url:"http://localhost:8080/prj/member/getIDInfo" ,
+		type: "post",
+		data:IDInfo,
+		dataType: "json",
+		contentType:"application/json",
+		success: function(data){
+			if (data.chkResult) alert("사용 가능한 아이디입니다.");
+			else alert("이미 존재하는 아이디 입니다.");
+		},
+		error: function(errorThrown){
+			alert(errorThrown.statusText);
+		}
+	})
+}</script>
 <body>
 	<!-- uppermost -->
 	<%@ include file="/resources/include/main/uppermost.jsp"%>
@@ -27,29 +47,25 @@
 	<div class="container">
 		<div class="jumbotron">
 			<span style="text-align: center;"><h3>회원가입</h3></span>
-			<form>
+			<form action="${contextPath }/prj/member/newMember" method="post" >
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon" ></span> 
 					<input id="id" name="id" type="text" class="form-control" placeholder="아이디">
+					<input id="idbtn" name="idbtn" type="button" class="form-control" value="아이디확인" onClick="fn_idchkFn()">
 					</div>
 				</p>
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
 					<input id="pw" name="pw" type="password" class="form-control" placeholder="패스워드">
+					<input id="repw" name="repw" type="password" class="form-control" placeholder="패스워드 다시입력">
 					</div>
 				</p>
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
-					<input id="name" name="name" type="text" class="form-control" placeholder="이름">
-					</div>
-				</p>
-				<p>
-					<div class="input-group">
-					<span class="input-group-addon"></span> 
-					<input id="age" name="age" type="text" class="form-control" placeholder="나이">
+					<input id="nickname" name="nickname" type="text" class="form-control" placeholder="닉네임">
 					</div>
 				</p>
 				<p>
@@ -61,11 +77,10 @@
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
-					<input id="address" name="address" type="text" class="form-control" placeholder="주소">
-					<input type="button" class="btn btn-default" value="주소찾기">
+					<input id="phone" name="phone" type="text" class="form-control" placeholder="전화번호">
 					</div>
 				</p>
-				<input type="submit" class="btn btn-default" value="가입하기" />
+				<input type="submit" class="btn btn-default" value="가입하기" onClick="fn_idchkFn()" />
 			</form>
 		</div>
 	</div>

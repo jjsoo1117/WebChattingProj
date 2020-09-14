@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gaon</groupId>
 	<artifactId>prj</artifactId>
-	<name>BlahBlah</name>
+	<name>blahblah</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -118,7 +118,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- JDBC settings library -->
+		<!-- jdbc 설정 라이브러리 시작 -->
 		<!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.ojdbc</groupId>
@@ -137,9 +137,9 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-		<!-- JDBC Settings library End -->
+		<!-- jdbc 설정 라이브러리 끝 -->
 
-		<!-- myBatis Settings library -->
+		<!-- mybatis 설정 라이브러리 시작 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -152,9 +152,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>2.0.5</version>
 		</dependency>
-
-		<!-- myBatis Settings library End -->
-		<!-- lombok Settings library -->
+		<!-- mybatis 설정 라이브러리 끝 -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -162,8 +160,8 @@
 			<version>1.18.12</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- lombok Settings End -->
-		<!--junit jupital Settings -->
+
+		<!-- junit 시작 -->
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -178,9 +176,6 @@
 			<version>4.13</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- junit End -->
-		<!-- spring test Settings -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -188,8 +183,50 @@
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- junit 끝 -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		<!--for jackson settings -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+<!-- 		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.8.8</version>
+		</dependency>
 
-		<!-- spring test -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.8.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.8</version>
+		</dependency> -->
+<!-- json포맷을 java객체로 변환 or java객체를 json포맷으로 변환 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<!-- xml포맷을 java객체로 변환 or java객체를 xml포맷으로 변환 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!--for jackson settings End -->
 	</dependencies>
 	<build>
 		<plugins>

@@ -15,6 +15,7 @@
 		let fs = document.getElementById('id') // 포커스 변수
 		fs.focus();
 	};
+	
 </script>
 
 </head>
@@ -26,7 +27,7 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<form action="#">
+			<form action="#" id="loginData">
 				<div class="form-group">
 					<label for="id"></label> <input type="text" class="form-control"
 						id="id" name="id" placeholder="아이디">
@@ -38,7 +39,7 @@
 				<div class="checkbox">
 					<label><input type="checkbox"> 아이디 저장 </label>
 				</div>
-				<button type="submit" class="btn btn-default">로그인</button>
+				<button type="submit" class="btn btn-default" onClick= "checkLogin();">로그인</button>
 				<input type="button" class="btn btn-default" onClick="location.href='/prj/member/joinForm'" value="회원가입">
 				<input type="button" class="btn btn-default" value="아이디 찾기">
 				<input type="button" class="btn btn-default" value="비밀번호 찾기">
